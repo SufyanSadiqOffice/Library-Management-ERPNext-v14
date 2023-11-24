@@ -1,0 +1,154 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LM-BI-{#####}",
+ "creation": "2023-08-01 14:38:03.447397",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "library",
+  "book",
+  "rack",
+  "shelf",
+  "from_date",
+  "column_break_thuga",
+  "to_date",
+  "user_category",
+  "issue_to",
+  "copies_available",
+  "book_price",
+  "book_return",
+  "notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "library",
+   "fieldtype": "Link",
+   "label": "Library",
+   "options": "Library",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.library != null && doc.library != ''",
+   "fieldname": "book",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Book",
+   "mandatory_depends_on": "eval:doc.library != null && doc.library != ''",
+   "options": "Book"
+  },
+  {
+   "fieldname": "issue_to",
+   "fieldtype": "Dynamic Link",
+   "label": "Issue to",
+   "options": "user_category",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "label": "From Date"
+  },
+  {
+   "default": "Today",
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "label": "To Date"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "hidden": 1,
+   "label": "Notes",
+   "max_height": "100px"
+  },
+  {
+   "fieldname": "book_return",
+   "fieldtype": "Link",
+   "label": "Book Return",
+   "options": "Book Return",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_thuga",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Book Issue",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "copies_available",
+   "fieldtype": "Int",
+   "label": "Copies Available",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.book != null && doc.library != ''",
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "mandatory_depends_on": "eval:doc.book != null && doc.library != ''",
+   "options": "Rack"
+  },
+  {
+   "depends_on": "eval:doc.rack != null && doc.rack != \"\" && doc.library != \"\"",
+   "fieldname": "shelf",
+   "fieldtype": "Link",
+   "label": "Shelf",
+   "mandatory_depends_on": "eval:doc.rack != null && doc.rack != \"\" && doc.library != \"\"",
+   "options": "Shelve"
+  },
+  {
+   "fieldname": "user_category",
+   "fieldtype": "Link",
+   "label": "User Category",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fetch_from": "book.price",
+   "fieldname": "book_price",
+   "fieldtype": "Currency",
+   "hidden": 1,
+   "label": "Book Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-10-19 17:32:48.067869",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book Issue",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "library",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

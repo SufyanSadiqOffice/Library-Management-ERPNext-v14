@@ -1,0 +1,141 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LM-BOOK-{#####}",
+ "creation": "2023-07-31 10:35:17.378489",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "section_break_nik13",
+  "title",
+  "author",
+  "genre",
+  "publisher",
+  "publication_date",
+  "column_break_oadhl",
+  "number_of_copies",
+  "copies_available",
+  "copies_in_libraries",
+  "language",
+  "edition",
+  "price",
+  "isbn"
+ ],
+ "fields": [
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "genre.name1",
+   "fetch_if_empty": 1,
+   "fieldname": "author",
+   "fieldtype": "Link",
+   "in_preview": 1,
+   "label": "Author",
+   "options": "Author"
+  },
+  {
+   "description": "International Standard Book Number",
+   "fieldname": "isbn",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "ISBN"
+  },
+  {
+   "fieldname": "publisher",
+   "fieldtype": "Data",
+   "label": "Publisher"
+  },
+  {
+   "fieldname": "publication_date",
+   "fieldtype": "Date",
+   "label": "Publication Date"
+  },
+  {
+   "fieldname": "genre",
+   "fieldtype": "Link",
+   "label": "Genre",
+   "options": "Genre"
+  },
+  {
+   "fieldname": "number_of_copies",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Number of Copies"
+  },
+  {
+   "fieldname": "copies_available",
+   "fieldtype": "Int",
+   "label": "Copies Available in Warehouse"
+  },
+  {
+   "fieldname": "language",
+   "fieldtype": "Link",
+   "label": "Language",
+   "options": "Language"
+  },
+  {
+   "fieldname": "edition",
+   "fieldtype": "Int",
+   "label": "Edition"
+  },
+  {
+   "fieldname": "column_break_oadhl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_nik13",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": " Enabled"
+  },
+  {
+   "fieldname": "copies_in_libraries",
+   "fieldtype": "Int",
+   "label": "Copies in Libraries"
+  },
+  {
+   "fieldname": "price",
+   "fieldtype": "Currency",
+   "label": "Price",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-19 15:07:16.461932",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "title",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

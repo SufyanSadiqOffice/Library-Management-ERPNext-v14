@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LM-BR-{#####}",
+ "creation": "2023-08-01 14:38:17.064719",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "book_issue",
+  "expected_return_date",
+  "returned_date",
+  "column_break_olfqw",
+  "book_price",
+  "user_category",
+  "fine_amount",
+  "book_is_lost",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "book_issue",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Book Issue",
+   "options": "Book Issue",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "returned_date",
+   "fieldtype": "Date",
+   "label": "Returned Date"
+  },
+  {
+   "fieldname": "fine_amount",
+   "fieldtype": "Float",
+   "label": "Fine Amount",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "book_is_lost",
+   "fieldtype": "Check",
+   "label": "Book is Lost"
+  },
+  {
+   "fieldname": "column_break_olfqw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Book Return",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fetch_from": "book_issue.to_date",
+   "fieldname": "expected_return_date",
+   "fieldtype": "Data",
+   "label": "Expected Return Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "book_issue.user_category",
+   "fieldname": "user_category",
+   "fieldtype": "Link",
+   "label": "User Category",
+   "options": "Fine Policy",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.book_is_lost == 1",
+   "fetch_from": "book_issue.book_price",
+   "fieldname": "book_price",
+   "fieldtype": "Currency",
+   "label": "Book Price"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-10-19 17:41:25.870560",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book Return",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "book_issue",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

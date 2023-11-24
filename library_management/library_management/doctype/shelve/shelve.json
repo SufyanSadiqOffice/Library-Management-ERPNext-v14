@@ -1,0 +1,106 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LM-SHEL-{#####}",
+ "creation": "2023-07-31 10:31:26.753551",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "section_break_mgso6",
+  "shelf_number",
+  "rack_number",
+  "location",
+  "book_capacity",
+  "column_break_kokpm",
+  "category",
+  "rack",
+  "library"
+ ],
+ "fields": [
+  {
+   "fieldname": "rack_number",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "in_list_view": 1,
+   "label": "Rack Number"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Data",
+   "label": "Category"
+  },
+  {
+   "fieldname": "rack",
+   "fieldtype": "Link",
+   "label": "Rack",
+   "options": "Rack",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "rack.library",
+   "fieldname": "library",
+   "fieldtype": "Link",
+   "label": "Library",
+   "options": "Library"
+  },
+  {
+   "fieldname": "column_break_kokpm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_mgso6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled"
+  },
+  {
+   "fieldname": "shelf_number",
+   "fieldtype": "Data",
+   "label": "Shelf Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "book_capacity",
+   "fieldtype": "Data",
+   "label": "Book Capacity"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-12 10:35:11.225492",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Shelve",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "rack_number",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

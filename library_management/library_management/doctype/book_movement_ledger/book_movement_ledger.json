@@ -1,0 +1,161 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "autoname": "format:LM-BML-{#####}",
+ "creation": "2023-07-31 12:11:58.931544",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "engine": "InnoDB",
+ "field_order": [
+  "book",
+  "type",
+  "type_id",
+  "source_library",
+  "source_rack",
+  "source_shelf",
+  "column_break_emvmh",
+  "target_library",
+  "target_rack",
+  "target_shelf",
+  "user_category",
+  "book_issued_to",
+  "copies"
+ ],
+ "fields": [
+  {
+   "fieldname": "book",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Book",
+   "options": "Book",
+   "read_only": 1
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "Main to Library\nLibrary to Library\nBook Issue\nBook Return\nBook Lost",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_library",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source Library",
+   "options": "Library",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_library",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Target Library",
+   "options": "Library",
+   "read_only": 1
+  },
+  {
+   "fieldname": "book_issued_to",
+   "fieldtype": "Dynamic Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Book Issued to",
+   "options": "user_category",
+   "read_only": 1
+  },
+  {
+   "fieldname": "copies",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Copies",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_emvmh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "source_rack",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source Rack",
+   "options": "Rack",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_rack",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Target Rack",
+   "options": "Rack",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_shelf",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Source Shelf",
+   "options": "Shelve",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_shelf",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Target Shelf",
+   "options": "Shelve",
+   "read_only": 1
+  },
+  {
+   "fieldname": "type_id",
+   "fieldtype": "Data",
+   "label": "Type ID"
+  },
+  {
+   "fieldname": "user_category",
+   "fieldtype": "Link",
+   "label": "User Category",
+   "options": "DocType"
+  }
+ ],
+ "hide_toolbar": 1,
+ "icon": "fa fa-list",
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2023-10-19 17:11:32.953142",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book Movement Ledger",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock User"
+  },
+  {
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

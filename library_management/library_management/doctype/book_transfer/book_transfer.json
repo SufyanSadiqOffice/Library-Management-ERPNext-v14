@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:LM-BT-{#####}",
+ "creation": "2023-07-31 12:21:41.694483",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "purpose",
+  "book",
+  "library",
+  "target_rack",
+  "target_shelf",
+  "column_break_k9f0a",
+  "source_library",
+  "source_rack",
+  "source_shelf",
+  "copies_available",
+  "number_of_copies",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "purpose",
+   "fieldtype": "Select",
+   "label": "Purpose",
+   "options": "Main to Library\nLibrary to Library",
+   "reqd": 1
+  },
+  {
+   "fieldname": "book",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Book",
+   "options": "Book",
+   "reqd": 1
+  },
+  {
+   "fieldname": "library",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Target Library",
+   "options": "Library",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.purpose == \"Library to Library\"",
+   "fieldname": "source_library",
+   "fieldtype": "Link",
+   "label": "Source Library",
+   "mandatory_depends_on": "eval:doc.purpose == \"Library to Library\"",
+   "options": "Library"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Book Transfer",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_k9f0a",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "copies_available",
+   "fieldtype": "Int",
+   "label": "Copies available",
+   "read_only": 1
+  },
+  {
+   "fieldname": "number_of_copies",
+   "fieldtype": "Int",
+   "label": "Number of copies",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.library != null",
+   "fieldname": "target_rack",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Target Rack",
+   "mandatory_depends_on": "eval:doc.library != null",
+   "options": "Rack"
+  },
+  {
+   "depends_on": "eval:doc.purpose == \"Library to Library\" && doc.book != null && doc.source_library != null",
+   "fieldname": "source_rack",
+   "fieldtype": "Link",
+   "label": "Source Rack",
+   "mandatory_depends_on": "eval:doc.purpose == \"Library to Library\" && doc.book != null && doc.source_library != null",
+   "options": "Rack"
+  },
+  {
+   "depends_on": "eval:doc.library != null",
+   "fieldname": "target_shelf",
+   "fieldtype": "Link",
+   "label": "Target Shelf",
+   "mandatory_depends_on": "eval:doc.library != null",
+   "options": "Shelve"
+  },
+  {
+   "depends_on": "eval:doc.purpose == \"Library to Library\" && doc.book != null && doc.source_library != null",
+   "fieldname": "source_shelf",
+   "fieldtype": "Link",
+   "label": "Source Shelf",
+   "mandatory_depends_on": "eval:doc.purpose == \"Library to Library\" && doc.book != null && doc.source_library != null",
+   "options": "Shelve"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-10-24 17:43:57.260836",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Book Transfer",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "purpose",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
